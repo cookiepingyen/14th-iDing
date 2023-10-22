@@ -53,6 +53,7 @@ group :development do
   gem "rubocop", "~> 1.56"
   gem 'dotenv-rails'
   gem "letter_opener"
+  gem "rspec-rails", "~> 6.0"
 end
 
 group :test do
@@ -61,6 +62,7 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
 
 
 
