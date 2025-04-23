@@ -45,6 +45,10 @@ gem 'kaminari'
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem 'factory_bot_rails', '~> 6.4', '>= 6.4.4'
+  gem 'ffaker', '~> 2.23'
+  gem 'rspec-rails', '~> 7.1'
+  gem 'shoulda-matchers', '~> 6.4'
 end
 
 group :development do
@@ -53,16 +57,11 @@ group :development do
   gem "rubocop", "~> 1.56"
   gem 'dotenv-rails'
   gem "letter_opener"
-  gem "rspec-rails", "~> 6.0"
 end
 
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
-  gem "capybara"
-  gem "selenium-webdriver"
+  gem 'capybara', '~> 3.40'
+  gem 'selenium-webdriver', '~> 4.27'
   gem "webdrivers"
 end
-
-
-
-
