@@ -19,13 +19,13 @@
         <ul class="h-full p-4 menu w-60 bg-base-200 text-base-content dark:bg-white">
           <div>
             <%= image_tag "logo_column.png", class: "w-40 m-auto py-2 lg:hidden" %>
-          
+
             <li><%= link_to t('reservationPage.About'), '#infomation', class: "cursor-pointer text-lg m-4 text-gray-800 py-6" %></li>
             <li><%= link_to t('reservationPage.Book Now!'), '#booking', class: "cursor-pointer text-lg m-4 text-gray-800 py-6" %></li>
             <li><%= link_to t('reservationPage.Menu'), '#menu', class: "cursor-pointer text-lg m-4 text-gray-800 py-6" %></li>
             <li><%= link_to t('reservationPage.Popular Restaurants'), restaurants_path, class: "cursor-pointer text-lg m-4 text-gray-800 py-6" %></li>
-            <li><%= link_to 'EN', restaurant_build_path(@restaurant, locale: 'en'), class: "cursor-pointer text-lg m-4 text-gray-800 py-6"  %></li>
-            <li><%= link_to '中文', restaurant_build_path(@restaurant, locale: 'tw'), class: "cursor-pointer text-lg m-4 text-gray-800 py-6"  %></li>
+            <li><%= link_to 'EN', restaurant_build_path(@restaurant, locale: :en), class: "cursor-pointer text-lg m-4 text-gray-800 py-6"  %></li>
+            <li><%= link_to '中文', restaurant_build_path(@restaurant, locale: nil), class: "cursor-pointer text-lg m-4 text-gray-800 py-6"  %></li>
           </div>
         </ul>
       </div>
@@ -36,8 +36,8 @@
           <li><%= link_to t('reservationPage.Book Now!'), '#booking', class: "cursor-pointer font-medium text-gray-800 hover:text-gray-600 py-6" %></li>
           <li><%= link_to t('reservationPage.Menu'), '#menu', class: "cursor-pointer font-medium text-gray-800 hover:text-gray-600 py-6" %></li>
           <li><%= link_to t('reservationPage.Popular Restaurants'), restaurants_path, class: "cursor-pointer font-medium text-gray-800 hover:text-gray-600 py-6" %></li>
-          <li><%= link_to 'EN', restaurant_build_path(@restaurant, locale: 'en'), class: "cursor-pointer font-medium text-gray-800 hover:text-gray-600 py-6"  %></li>
-          <li><%= link_to '中文', restaurant_build_path(@restaurant, locale: 'tw'), class: "cursor-pointer font-medium text-gray-800 hover:text-gray-600 py-6"  %></li>
+          <li><%= link_to 'EN', restaurant_build_path(@restaurant, locale: :en), class: "cursor-pointer font-medium text-gray-800 hover:text-gray-600 py-6"  %></li>
+          <li><%= link_to '中文', restaurant_build_path(@restaurant, locale: nil), class: "cursor-pointer font-medium text-gray-800 hover:text-gray-600 py-6"  %></li>
         </ul>
       </div>
     </div>
@@ -99,9 +99,9 @@
           <hr class="my-5">
 
           <p class='w-full my-8 text-2xl font-bold text-center text-green'><%= t('reservationPage.Select Dining Time')%></p>
-        
+
           <div class="grid grid-cols-3 mx-auto md:grid-cols-5 lg:grid-cols-7 xl:grid-cols-8" data-ordertime-target='timeContainer'>
-            <span class="col-span-3 col-start-1 text-xl font-bold text-center lg:col-span-7 xl:col-span-8 md:col-span-5"><%= t('reservationPage.Please Choose a Reservation Date')%></span>          
+            <span class="col-span-3 col-start-1 text-xl font-bold text-center lg:col-span-7 xl:col-span-8 md:col-span-5"><%= t('reservationPage.Please Choose a Reservation Date')%></span>
           </div>
           <div class="grid hidden grid-cols-3 mx-auto md:grid-cols-5 lg:grid-cols-7 xl:grid-cols-8"
           data-ordertime-target='fullyBooked'>
@@ -109,7 +109,7 @@
           </div>
           <%= f.hidden_field :time, data: {ordertime_target: "timeInput"}%>
         </section>
-        
+
         <hr class="mt-10">
 
          <section class="w-4/5 mx-auto">
@@ -118,7 +118,7 @@
             <div class='mb-6'>
               <iframe
               class='w-full border-none g h-80'
-              loading="lazy" 
+              loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"
               src="https://www.google.com/maps/embed/v1/place?key=<%= ENV['GOOGLE_MAP_KEY']%>
                 &q=<%= @restaurant.address%>">
@@ -141,7 +141,7 @@
               <p class='mb-2 text-green'><i class="mx-2 fa-solid fa-clock"></i><%=t('hours')%></p>
               <% @restaurant.open_times.each do |open_time|%>
                 <p class='mx-4 text-gray-600'>
-                  <%= open_time.start_time.strftime('%R') %> - 
+                  <%= open_time.start_time.strftime('%R') %> -
                   <%= open_time.end_time.strftime('%R') %>
                 </p>
               <% end %>
@@ -162,7 +162,7 @@
       </section>
       <div class="fixed bottom-0 left-0 right-0 w-full bg-white shadow-inner">
         <div>
-          <%= f.submit t('reservationPage.Next'), data: {ordertime_target: "submitBtn"}, class: 'next-btn-void', disabled: true %>  
+          <%= f.submit t('reservationPage.Next'), data: {ordertime_target: "submitBtn"}, class: 'next-btn-void', disabled: true %>
         </div>
       </div>
     <% end %>
