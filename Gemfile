@@ -26,6 +26,7 @@ gem "jsbundling-rails"
 gem "aasm", "~> 5.5"
 gem 'twsms2', '~> 1.3'
 gem 'friendly_id', '~> 5.4.0'
+gem 'rails-i18n', '~> 7.0', '>= 7.0.9'
 
 gem "pundit"
 gem 'faker'
@@ -63,5 +64,6 @@ group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem 'capybara', '~> 3.40'
   gem 'selenium-webdriver', '~> 4.27'
+  gem 'database_cleaner-active_record', '~> 2.1'
   gem "webdrivers"
 end
