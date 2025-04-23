@@ -18,6 +18,9 @@
 #  reserve_interval :integer          default(15)
 #  mealtime         :integer          default(60)
 #  bookday_advance  :integer          default(14)
+#  deleted_at       :datetime
+#  menus            :json
+#  slug             :string
 #
 class Restaurant < ApplicationRecord
   acts_as_paranoid

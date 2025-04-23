@@ -12,6 +12,8 @@
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #  restaurant_id :bigint           not null
+#  site_x        :integer          default(1)
+#  site_y        :integer          default(1)
 #
 class Table < ApplicationRecord
   include AASM
