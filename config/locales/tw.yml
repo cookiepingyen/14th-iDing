@@ -1,4 +1,4 @@
-tw:
+zh-TW:
   navbar:
     about: "關於 iDing"
     restaurants: "合作餐廳"
@@ -7,13 +7,11 @@ tw:
     Sign Up: "註冊"
     Change Password: "更改密碼"
     My Restaurant: "我的餐廳"
-
   location: 位置
   phone: 電話
   hours: 營業時間
   menu: 菜單
   root: 回首頁
-
   views:
     pagination:
       first: "&laquo; 第一頁"
@@ -21,7 +19,6 @@ tw:
       previous: "&lsaquo; 上一頁"
       next: "下一頁 &rsaquo;"
       truncate: "&hellip;"
-
   helpers:
     submit:
       restaurant:
@@ -41,7 +38,6 @@ tw:
     Sign Up: "立即註冊！"
     Restaurant Management: "管理餐廳"
     SayGoodbye: "擺脫厚重的傳統紙本登記，你只需要一台電腦！<br>就可以輕鬆管理餐廳的訂位，大幅提⾼控位能⼒。 除了系統的顧客資訊外，更可以隨時掌握客人動態。<br>來看看 iDing 訂位系統是如何做到讓客人源源不絕吧！"
-
     develop: "方便的訂位管理"
     ToYourNeeds: "店家可以輕鬆地瀏覽、查詢以及回顧過去的訂位紀錄，隨時掌握店內訂位情況。"
     free: "完美呈現店家"
@@ -50,11 +46,9 @@ tw:
     complex user manuals: 自由新增以及編輯每間店家的營業時段與公休日，彈性提供客人訂位。
     RaveReviews: "直觀的桌位管理系統"
     Surpassed: 自由的客製化餐廳桌位平面圖，讓店家隨時掌握現場桌位狀況。
-
   partner:
     Partnered with iDing, now available for reservations!: 正在使用 iDing 的合作夥伴！
     Book now: 馬上訂位
-
   reservationPage:
     About: 餐廳簡介
     Book Now!: 立即訂位
@@ -69,7 +63,6 @@ tw:
     Next: "下一步"
     Restaurant information: 餐廳資訊
     this date is fully booked: 該日期已客滿
-
   customerInfo:
     Reservation Information: 訂位資訊
     Return to Edit: 返回修改
@@ -84,7 +77,6 @@ tw:
     Phone *: 電話 *
     Purpose: 用餐目的
     Note: 備註
-
   reservations:
     Confirm Reservation: 確認訂位
     purposes:
@@ -95,7 +87,6 @@ tw:
       friends: "朋友聚餐"
       business: "商務聚餐"
       other: "其他"
-
     state:
       reserved: 已預訂
       keeped: 已保留
@@ -115,10 +106,8 @@ tw:
     minutes: 分鐘
     menu: 點我看菜單
     back: 回到餐廳列表
-
   confirmations:
     confirm_cancel: "確認取消？"
-
   devise:
     Sign Up: 註冊
     Email: 電子郵件
@@ -152,7 +141,6 @@ tw:
     newpassword: 新密碼
     Forgot password: 忘記密碼
     ResetPassword: 重新寄送密碼認證信
-
   restaurant:
     Your Restaurants: 您的餐廳
     Homepage: 返回首頁
@@ -168,17 +156,14 @@ tw:
     View reservation page: 查看訂位頁面
     Reservation Page: 查看
     Delete Restaurant: 刪除這間餐廳
-
   table:
     status:
       vacant: 空桌
       occupied: 使用中
-
   activerecord:
     errors:
       messages:
         record_invalid: "無法保存記錄"
-
     faker:
       address:
         city_prefix:
@@ -651,6 +636,5 @@ tw:
           - "#{street_name} #{building_number} 號"
         default_country: [台灣]
         default_country_code: ["TW"]
-
       phone_number:
         formats: ["0#-########", "09##-######", "09########"]

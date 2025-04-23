@@ -98,6 +98,10 @@ GEM
       ssrf_filter (~> 1.0)
     concurrent-ruby (1.2.2)
     crass (1.0.6)
+    database_cleaner-active_record (2.2.0)
+      activerecord (>= 5.a)
+      database_cleaner-core (~> 2.0.0)
+    database_cleaner-core (2.0.1)
     date (3.3.3)
     debug (1.8.0)
       irb (>= 1.5.0)
@@ -283,6 +287,9 @@ GEM
     rails-html-sanitizer (1.6.0)
       loofah (~> 2.21)
       nokogiri (~> 1.14)
+    rails-i18n (7.0.10)
+      i18n (>= 0.7, < 2)
+      railties (>= 6.0.0, < 8)
     railties (7.0.7.2)
       actionpack (= 7.0.7.2)
       activesupport (= 7.0.7.2)
@@ -409,6 +416,7 @@ DEPENDENCIES
   bootsnap
   capybara (~> 3.40)
   carrierwave (~> 3.0, >= 3.0.2)
+  database_cleaner-active_record (~> 2.1)
   debug
   devise (~> 4.9)
   dotenv-rails
@@ -430,6 +438,7 @@ DEPENDENCIES
   puma (~> 5.0)
   pundit
   rails (~> 7.0.6)
+  rails-i18n (~> 7.0, >= 7.0.9)
   ransack
   rspec-rails (~> 7.1)
   rubocop (~> 1.56)
