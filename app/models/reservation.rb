@@ -7,8 +7,8 @@
 #  id            :bigint           not null, primary key
 #  date          :date             not null
 #  time          :time             not null
-#  adults     :integer          not null
-#  kids       :integer          not null
+#  adults        :integer          not null
+#  kids          :integer          not null
 #  purpose       :string
 #  note          :text
 #  serial        :string
@@ -18,6 +18,11 @@
 #  name          :string           not null
 #  email         :string
 #  gender        :integer
+#  tel           :string           not null
+#  deleted_at    :datetime
+#  table_id      :bigint
+#  state         :string           default("reserved")
+#  slug          :string
 #
 class Reservation < ApplicationRecord
   extend FriendlyId

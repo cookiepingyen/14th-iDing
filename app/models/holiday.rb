@@ -5,7 +5,7 @@
 # Table name: holidays
 #
 #  id            :bigint           not null, primary key
-#  dayoff        :date
+#  dayoff        :string
 #  restaurant_id :bigint           not null
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
