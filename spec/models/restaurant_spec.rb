@@ -25,14 +25,13 @@
 require 'rails_helper'
 
 RSpec.describe Restaurant, type: :model do
-  describe 'Validations' do
-    subject { build(:restaurant) }
-    it '具有有效的factory' do
-      expect(subject).to be_valid
-    end
-  end
+  subject { build(:restaurant) }
 
   context 'Validations' do
+    it 'is valid with valid attributes' do
+      expect(subject).to be_valid
+    end
+
     it { should validate_presence_of(:name) }
     it { should validate_presence_of(:url) }
     it { should validate_presence_of(:tel) }
