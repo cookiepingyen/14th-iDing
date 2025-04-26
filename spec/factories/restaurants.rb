@@ -33,15 +33,37 @@ FactoryBot.define do
     user { association(:user, :confirmed) }
 
     trait :with_image do
-      after(:build) do |restaurant|
-        restaurant.image.attach(io: File.open('spec/fixtures/image.jpg'), filename: 'image.jpg')
-      end
+      image { File.open(Rails.root.join('spec/fixtures/image.jpg')) }
     end
 
     trait :with_menus do
+      menus { [File.open(Rails.root.join('spec/fixtures/menu.jpg'))] }
+    end
+
+    trait :with_mealtime do
+      mealtime { 60 }
+    end
+
+    trait :with_bookday_advance do
+      bookday_advance { 14 }
+    end
+
+    trait :with_reserve_interval do
+      reserve_interval { 15 }
+    end
+
+    trait :with_holidays do
       after(:build) do |restaurant|
-        restaurant.menus.attach(io: File.open('spec/fixtures/menu.jpg'), filename: 'menu.jpg')
+        holiday = build(:holiday, restaurant: restaurant)
       end
     end
+
+    trait :with_open_times do
+      after(:build) do |restaurant|
+        open_time = build(:open_time, restaurant: restaurant)
+      end
+    end
+
+    factory :can_reserve_restaurant, traits: [:with_mealtime, :with_bookday_advance, :with_reserve_interval, :with_holidays, :with_open_times]
   end
 end

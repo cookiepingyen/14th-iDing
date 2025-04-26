@@ -20,14 +20,13 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  describe 'Validations' do
-    subject { build(:user) }
-    it '具有有效的factory' do
-      expect(subject).to be_valid
-    end
-  end
+  subject { build(:user) }
 
   context 'Validations' do
+    it 'is valid with valid attributes' do
+      expect(subject).to be_valid
+    end
+
     it { should validate_presence_of(:email) }
     it { should validate_presence_of(:password) }
   end
