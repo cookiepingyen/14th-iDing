@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # == Schema Information
 #
 # Table name: open_times
@@ -11,8 +9,11 @@
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #
-class OpenTime < ApplicationRecord
-  belongs_to :restaurant
-  validates :start_time, :end_time, presence: true
-  validates :end_time, comparison: { greater_than: :start_time }
+FactoryBot.define do
+  factory :open_time do
+    start_time { Time.current }
+    end_time { Time.current + (2..6).to_a.sample.hours }
+
+    restaurant { association(:restaurant) }
+  end
 end
