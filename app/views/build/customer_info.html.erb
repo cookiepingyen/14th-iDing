@@ -37,7 +37,7 @@
       </div>
     </div>
   </div>
-  <!-- 訂位資料欄 -->  
+  <!-- 訂位資料欄 -->
   <div class="grid w-full grid-cols-1 p-10 mx-auto bg-white rounded-lg shadow-xl xl:w-5/6 lg:m-4 md:col-span-2">
     <div class="m-10 p-15" data-controller="customerinfo">
       <%= form_with url: wizard_path, method: :patch, data: { turbo: false } do |f| %>
@@ -70,7 +70,7 @@
                                                      [t('reservations.purposes.anniversary')],
                                                      [t('reservations.purposes.friends')],
                                                      [t('reservations.purposes.business')],
-                                                     [t('reservations.purposes.other')]]), 
+                                                     [t('reservations.purposes.other')]]),
           class:"text-black placeholder-gray-600 w-full px-4 py-2.5 mt-2 text-base transition duration-500 ease-in-out transform border-transparent rounded-lg bg-gray-200 focus:bg-white focus:outline-none focus:ring-gray-400 focus:ring-2 ring-offset-2  focus:border-gray-500" %>
         </div>
         <div class="mt-4">
@@ -78,7 +78,7 @@
           <%= f.text_area :note, class:"iding-textarea" %>
         </div>
         <%= f.submit t('reservations.Confirm Reservation'), data: {customerinfo_target: "submitBtn"}, class: "customer-submit-btn-void", disabled: true %>
-      <% end %>  
+      <% end %>
     </div>
   </div>
 </div>
