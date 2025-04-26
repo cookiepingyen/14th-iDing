@@ -50,6 +50,7 @@ group :development, :test do
   gem 'ffaker', '~> 2.23'
   gem 'rspec-rails', '~> 7.1'
   gem 'shoulda-matchers', '~> 6.4'
+  gem 'pry-byebug', '~> 3.10', '>= 3.10.1'
 end
 
 group :development do
