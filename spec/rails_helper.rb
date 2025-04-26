@@ -68,6 +68,13 @@ RSpec.configure do |config|
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)
+
+    CarrierWave.configure do |c|
+      c.enable_processing = false
+      c.root = Rails.root.join('tmp')
+      c.cache_dir = Rails.root.join('tmp/uploads/cache').to_s
+      c.store_dir = Rails.root.join('tmp/uploads/store').to_s
+    end
   end
 
 end
