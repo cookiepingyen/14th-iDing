@@ -17,7 +17,7 @@
         <% else %>
           <p><%= @reservation.name %> <%= gender_title(@reservation.gender) %> 您好</p>
         <% end %>
-        <p class="text-sm"><%= t('success.Here are your booking details')%>：</p> 
+        <p class="text-sm"><%= t('success.Here are your booking details')%>：</p>
       </div>
       <div class="mx-4 border rounded border-slate-300">
         <div class="py-6 text-center">
@@ -36,7 +36,7 @@
           <% end %>
           <p class="text-sm"><%= t('success.Note')%>：<%= @reservation.note unless @reservation.note.blank? %></p>
         </div>
-        <div data-controller="holdseat" 
+        <div data-controller="holdseat"
              data-holdseat-url-value="<%= @reservation.id %>"
              class="pt-3">
           <button data-action="click->holdseat#holdSeat"
@@ -52,7 +52,7 @@
         <div class="mt-2">
           <%= link_to t('success.Cancel'), reservation_path(@reservation),
                         data:{ turbo_method: 'delete',
-                               turbo_confirm: t('confirmations.confirm_cancel') 
+                               turbo_confirm: t('confirmations.confirm_cancel')
                         }, class: "cursor-pointer text-center block py-2 w-full mx-auto border rounded border-slate-300 hover:bg-green hover:text-white" %>
         </div>
       </div>
