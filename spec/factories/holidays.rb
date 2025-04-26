@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # == Schema Information
 #
 # Table name: holidays
@@ -10,7 +8,10 @@
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #
-class Holiday < ApplicationRecord
-  belongs_to :restaurant
-  validates :dayoff, uniqueness: { scope: :restaurant_id }, inclusion: { in: %w[Mon Tue Wed Thu Fri Sat Sun], message: "%{value} 不是一個有效日期" }
+FactoryBot.define do
+  factory :holiday do
+    dayoff { %w[Mon Tue Wed Thu Fri Sat Sun].sample }
+
+    restaurant { association(:restaurant) }
+  end
 end
