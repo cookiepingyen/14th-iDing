@@ -2,7 +2,7 @@
 
 <%= link_to '新增訂位', new_restaurant_reservation_path, class: 'action-btn cursor-pointer' %>
 
-<ul> 
+<ul>
   <% @reservations.each do |reservation| %>
     <%# if r.date.to_date == Date.today %>
     <li>
@@ -33,8 +33,8 @@
                                                 turbo_confirm: '確認刪除？'
                                                 },
                                                 class: 'action-btn cursor-pointer' %>
-      </div>  
+      </div>
     </li>
-      <%# end %> 
-  <% end %> 
+      <%# end %>
+  <% end %>
 </ul>
