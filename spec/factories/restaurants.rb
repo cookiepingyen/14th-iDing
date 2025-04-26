@@ -30,7 +30,7 @@ FactoryBot.define do
     address { FFaker::Lorem.characters.first(20) }
     description { FFaker::Lorem.paragraph }
     ubn { rand(10000000..99999999).to_s }
-    association :user
+    user { association(:user, :confirmed) }
 
     trait :with_image do
       after(:build) do |restaurant|
