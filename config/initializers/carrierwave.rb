@@ -14,8 +14,5 @@ CarrierWave.configure do |config|
       region: 'ap-northeast-1'
     }
     config.fog_directory = ENV["AWS_S3_BUCKET_NAME"]
-    config.storage_paths = {
-      store_dir: proc { |u| "uploads/#{u.model.class.to_s.underscore}/#{u.mounted_as}/#{u.model.id}" }
-    }
   end
 end
