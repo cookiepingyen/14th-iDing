@@ -20,6 +20,8 @@
 class User < ApplicationRecord
   has_many :restaurants
 
+  validates :email, presence: true, uniqueness: true
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable,
          :omniauthable, omniauth_providers: [:google_oauth2]
