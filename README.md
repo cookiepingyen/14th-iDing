@@ -2,7 +2,7 @@
 
 歡迎使用我們的訂位平台！
 
-🌐 網站：https://iding.cc/
+🌐 網站：https://www.iding.website/
 
 ## 關於 iDing
 
