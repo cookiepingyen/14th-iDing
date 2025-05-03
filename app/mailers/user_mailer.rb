@@ -6,7 +6,7 @@ class UserMailer < Devise::Mailer
   def confirmation_instructions(record, token, opt = {})
     headers['custom-header'] = 'Bar'
     opt[:subject] = '加入 iDing 前請驗證您的信箱'
-    opt[:from] = 'noreplyr@www.iding.website'
+    opt[:from] = 'noreply@www.iding.website'
     super
   end
 end
