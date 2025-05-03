@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   root to: 'home#index'
-  
+
   devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks", confirmations: 'users/confirmations'}
-  
+
   namespace :admin do
     resources :restaurants do
       resources :tables do
@@ -29,9 +29,9 @@ Rails.application.routes.draw do
   resources :reservations, only: :destroy
 
   namespace :api do
-    namespace :v1 do 
+    namespace :v1 do
       resources :reservations, only: [] do
-        member do 
+        member do
           patch :check_in
           patch :leave
           patch :hold_seat
@@ -50,6 +50,6 @@ Rails.application.routes.draw do
     end
   end
 
-  
+
   get '/success_page/:reservation_id', to: 'build#success_page', as: :success_page
 end
