@@ -34,6 +34,7 @@ class Reservation < ApplicationRecord
   belongs_to :table, optional: true
 
   before_validation :valid_total_guests, on: :create
+  self.skip_time_zone_conversion_for_attributes = [:time]
 
   validates :date, presence: true
   validates :time, presence: true
