@@ -11,7 +11,7 @@ module Admin
 
       @holidays = @restaurant.holidays.includes(:restaurant)
       @holiday = Holiday.new
-      @week = (Date.today.beginning_of_week..Date.today.end_of_week)
+      @week = Date.current.beginning_of_week..Date.current.end_of_week
     end
 
     def create
