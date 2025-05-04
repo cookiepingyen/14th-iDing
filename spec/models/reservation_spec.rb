@@ -25,7 +25,7 @@
 require 'rails_helper'
 
 RSpec.describe Reservation, type: :model do
-  describe 'validations' do
+  context 'validations' do
     subject { build(:reservation) }
 
     before do
@@ -50,7 +50,7 @@ RSpec.describe Reservation, type: :model do
     it { should validate_numericality_of(:kids).is_greater_than_or_equal_to(0) }
   end
 
-  describe 'associations' do
+  context 'associations' do
     before do
       Reservation.skip_callback(:validation, :before, :valid_total_guests)
     end
@@ -63,7 +63,7 @@ RSpec.describe Reservation, type: :model do
     it { should belong_to(:table).optional }
   end
 
-  describe '訂單人數 驗證' do
+  context '訂單人數 驗證' do
     let!(:restaurant) { create(:restaurant) }
     let!(:table) { create(:table, restaurant: restaurant, seat_num: 4) }
 
@@ -78,8 +78,21 @@ RSpec.describe Reservation, type: :model do
     end
   end
 
-  describe 'state machine' do
-    let(:reservation) { create(:reservation) }
+  context 'state machine' do
+    before(:each) do
+      Reservation.skip_callback(:validation, :before, :valid_total_guests)
+      # 重置任何可能的狀態
+      Table.delete_all
+      Reservation.delete_all
+    end
+
+    after(:each) do
+      Reservation.set_callback(:validation, :before, :valid_total_guests)
+    end
+
+    let(:restaurant) { create(:restaurant) }
+    let(:table) { create(:table, restaurant: restaurant, seat_num: 4) }
+    let(:reservation) { create(:reservation, restaurant: restaurant, table: table) }
 
     it 'has initial state of reserved' do
       expect(reservation).to be_reserved
@@ -123,7 +136,7 @@ RSpec.describe Reservation, type: :model do
     end
   end
 
-  describe '.search' do
+  context '.search' do
     let!(:reservation1) { create(:reservation, name: 'John Doe', tel: '1234567890', date: Date.current) }
     let!(:reservation2) { create(:reservation, name: 'Jane Smith', tel: '0987654321', date: Date.tomorrow) }
 
