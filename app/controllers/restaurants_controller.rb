@@ -49,7 +49,7 @@ class RestaurantsController < ApplicationController
   def set_timelist
     time_slot
     @timerange = @time_period.each_with_object([]) do |time, arr|
-      time.step(@restaurant.reserve_interval.minutes) { |t| arr.push(Time.at(t).utc.strftime('%R')) }
+      time.step(@restaurant.reserve_interval.minutes) { |t| arr.push(Time.at(t).strftime('%R')) }
     end
   end
 
