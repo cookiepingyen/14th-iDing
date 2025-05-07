@@ -52,4 +52,6 @@ Rails.application.routes.draw do
 
 
   get '/success_page/:reservation_id', to: 'build#success_page', as: :success_page
+
+  get '/robots.:format', to: 'home#robots'
 end
