@@ -1,6 +1,6 @@
 puts 'Start Seeding...'
 
-seeds = %i(users restaurants tables)
+seeds = %i(users restaurants tables reservations)
 
 seeds.each do |table|
   load "db/seeds/#{table}.rb"
