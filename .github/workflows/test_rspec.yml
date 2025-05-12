@@ -1,0 +1,63 @@
+# This workflow will install a prebuilt Ruby version, install dependencies, and
+# run tests and linters.
+name: "執行測試"
+on:
+  pull_request:
+    branches: [ "main", "dev" ]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16.4-alpine
+        ports:
+          - 54321:5432
+        env:
+          POSTGRES_DB: rails_test
+          POSTGRES_USER: rails
+          POSTGRES_PASSWORD: password
+    env:
+      RAILS_ENV: test
+      DATABASE_URL: "postgres://rails:password@localhost:54321/rails_test"
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Install Ruby and gems
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.2.2
+          rubygems: 3.5.22
+          bundler-cache: true
+      # Add or replace database setup steps here
+      - name: Set up database schema
+        run: bin/rails db:schema:load
+      # Install node js
+      - name: Install node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 16
+      # Run 'yarn install'
+      - name: yarn install
+        run: yarn install
+      # Deploying Webpacker
+      - name: Compile assets
+        run: bin/rails assets:precompile
+      # Add or replace test runners here
+      - name: Run tests
+        run: bundle exec rspec spec/models
+      # Store the screenshot images made by the failed test cases
+      - name: Store screenshot images
+        if: ${{ failure() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: screenshot-images
+          path: tmp/screenshots/
+          retention-days: 3
+      # Store the test.log
+      - name: Store test.log
+        if: ${{ failure() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-log
+          path: log/test.log
+          retention-days: 3
