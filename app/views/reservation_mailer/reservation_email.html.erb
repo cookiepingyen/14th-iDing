@@ -1,48 +1,46 @@
-<div class="py-3 bg-gray-100 text-green">
-  <section class="h-auto">
-    <div class="pt-6 mx-auto mb-5">
-      <div class="max-w-xs mx-auto mb-2">
-        <%= image_tag "iding_logo.png", class:"w-full"%>
-      </div>
-      <div class="text-center">
-        <p class="pb-2 text-2xl font-bold "><%= @reservation.restaurant.name %></p>
-        <p class="text-sm"><%= @reservation.restaurant.tel %></p>
-        <p class="text-sm"><%= @reservation.restaurant.address %></p>
+<div style="padding-top: 1rem; padding-bottom: 1rem; background-color: #f3f4f6; color:rgb(7, 85, 95);">
+  <section style="height: auto;">
+    <div style="padding-top: 1.5rem; margin: 0 auto; margin-bottom: 1.25rem;">
+      <div style="text-align: center;">
+        <p style="padding-bottom: 0.5rem; font-size: 1.5rem; font-weight: bold;"><%= @reservation.restaurant.name %></p>
+        <p style="font-size: 0.875rem;"><%= @reservation.restaurant.tel %></p>
+        <p style="font-size: 0.875rem;"><%= @reservation.restaurant.address %></p>
       </div>
     </div>
-    <div class="max-w-xs p-10 m-2 mx-auto bg-white rounded-lg md:max-w-md pb-14 shadow-x">
-      <div class="mb-2 text-xl text-center">
+    <div style="max-width: 20rem; padding: 2.5rem; margin: 0.5rem auto; background-color: white; border-radius: 0.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.1); padding-bottom: 3.5rem;">
+      <div style="margin-bottom: 0.5rem; font-size: 1.25rem; text-align: center;">
         <% if locale == :en %>
           <p>Hi, <%= t("customerInfo.gender.#{@reservation.gender}") %> <%= @reservation.name %></p>
         <% else %>
           <p><%= @reservation.name %> <%= t("customerInfo.gender.#{@reservation.gender}") %> 您好</p>
         <% end %>
-        <p class="text-sm"><%= t('success.Here are your booking details')%>：</p>
+        <p style="font-size: 0.875rem;"><%= t('success.Here are your booking details')%>：</p>
       </div>
-      <div class="mx-4 border rounded border-slate-300">
-        <div class="py-6 text-center">
+      <div style="margin: 0 1rem; border: 1px solid #d1d5db; border-radius: 0.25rem;">
+        <div style="padding: 1.5rem 0; text-align: center;">
           <% if locale == :en %>
-            <p class="text-2xl"><%= l(@reservation.date, format: :short)%></p>
+            <p style="font-size: 1.5rem;"><%= l(@reservation.date, format: :short)%></p>
           <% else %>
-            <p class="text-2xl"><%= @reservation.date.strftime("%m月%d日")%></p>
+            <p style="font-size: 1.5rem;"><%= @reservation.date.strftime("%m月%d日")%></p>
           <% end %>
-          <p class="my-3 text-5xl text-green-800"><%= @reservation.time.strftime("%H:%M") %></p>
-          <p class="text-xl"><%= @reservation.adults %> <%= t('success.Adult(s)')%></p>
-          <p class="my-3 text-xl">
-          <% if @reservation.kids.zero? %>
-            <%= '0' %> <%= t('success.Kid(s)')%>
-          <% else %>
-            <%= @reservation.kids %> <%= t('success.Kid(s)')%></p>
-          <% end %>
-          <p class="text-sm"><%= t('success.Note')%>：<%= @reservation.note unless @reservation.note.blank? %></p>
+          <p style="margin: 0.75rem 0; font-size: 3rem; color: #166534;"><%= @reservation.time.strftime("%H:%M") %></p>
+          <p style="font-size: 1.25rem;"><%= @reservation.adults %> <%= t('success.Adult(s)')%></p>
+          <p style="margin: 0.75rem 0; font-size: 1.25rem;">
+            <% if @reservation.kids.zero? %>
+              <%= '0' %> <%= t('success.Kid(s)')%>
+            <% else %>
+              <%= @reservation.kids %> <%= t('success.Kid(s)')%>
+            <% end %>
+          </p>
+          <p style="font-size: 0.875rem;"><%= t('success.Note')%>：<%= @reservation.note unless @reservation.note.blank? %></p>
         </div>
       </div>
     </div>
-    <span class="block w-full py-2 mx-auto text-center text-md">
+    <span style="display: block; width: 100%; padding: 0.5rem 0; margin: 0 auto; text-align: center; font-size: 1rem;">
       <%= t('success.The dining time is limited to')%> <%= @reservation.restaurant.mealtime %> <%= t('success.minutes')%>
     </span>
-    <div class="text-center">
+    <div style="text-align: center;">
       <span>您的訂位資料： <%= success_page_url(@reservation.slug) %></span>
     </div>
-  </div>
-</section>
+  </section>
+</div>
