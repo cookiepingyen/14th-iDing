@@ -76,7 +76,10 @@ en:
     Phone *: Phone *
     Purpose:  Purpose
     Note: Note
-
+    gender:
+      1: "Mr."
+      2: "Ms."
+      3: ""
 
 
   reservations:
@@ -115,7 +118,7 @@ en:
     Cancel: Cancel
     The dining time is limited to: The dining time is limited to
     menu: Menu
-    back: Back to Restaurant List 
+    back: Back to Restaurant List
 
   confirmations:
     confirm_cancel: "Confirm cancellation?"
@@ -170,7 +173,7 @@ en:
     status:
       vacant: vacant
       occupied: occupied
-      
+
   views:
     pagination:
       first: "&laquo; First"

@@ -18,7 +18,8 @@ module Admin
         redirect_to admin_restaurant_path(@restaurant), alert: '請填寫必要欄位'
       elsif @reservation.save
         redirect_to admin_restaurant_path(@restaurant), notice: '訂位新增成功'
-        SendSmsJob.perform_later(@reservation)
+        # SendSmsJob.perform_later(@reservation)
+        ReservationMailer.reservation_email(@reservation).deliver_later
       else
         redirect_to admin_restaurant_path(@restaurant), alert: '請填寫必要欄位  或是<br> 該時段已無適合的空桌'
       end

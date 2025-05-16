@@ -4,8 +4,10 @@ class ReservationMailer < ApplicationMailer
     email = reservation.email
     restaurant_name = reservation.restaurant.name
 
-    mail(to: email,
-         subject: "您在「#{restaurant_name}」的訂位已確認"
-        )
+    if email.present?
+      mail(to: email,
+           subject: "您在「#{restaurant_name}」的訂位已確認"
+          )
+    end
   end
 end
