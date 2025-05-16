@@ -77,6 +77,10 @@ zh-TW:
     Phone *: 電話 *
     Purpose: 用餐目的
     Note: 備註
+    gender:
+      1: 先生
+      2: 小姐
+      3: ''
   reservations:
     Confirm Reservation: 確認訂位
     purposes:
