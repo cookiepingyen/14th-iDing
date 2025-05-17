@@ -110,6 +110,7 @@ zh-TW:
     minutes: 分鐘
     menu: 點我看菜單
     back: 回到餐廳列表
+    Add to Calendar: 加入行事曆
   confirmations:
     confirm_cancel: "確認取消？"
   devise:
