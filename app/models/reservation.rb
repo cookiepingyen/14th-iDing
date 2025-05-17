@@ -132,6 +132,21 @@ class Reservation < ApplicationRecord
     table.vacant! if table.present? && table.may_vacant?
   end
 
+  def google_calendar_url
+    title = restaurant.name
+    location = restaurant.address
+
+    hours = time.strftime("%H").to_i - 8
+    minutes = time.strftime("%M").to_i
+
+    start_time = date.to_datetime.change(hour: hours, min: minutes)
+    end_time = start_time + restaurant.mealtime.minutes
+    start_at = start_time.strftime("%Y%m%dT%H%M%SZ")
+    end_at = end_time.strftime("%Y%m%dT%H%M%SZ")
+
+    "https://www.google.com/calendar/render?action=TEMPLATE&text=#{title}&dates=#{start_at}/#{end_at}&location=#{location}"
+  end
+
   private
 
   def generate_random

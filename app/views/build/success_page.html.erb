@@ -55,6 +55,14 @@
                                turbo_confirm: t('confirmations.confirm_cancel')
                         }, class: "cursor-pointer text-center block py-2 w-full mx-auto border rounded border-slate-300 hover:bg-green hover:text-white" %>
         </div>
+        <div class="mt-2">
+          <%= link_to @reservation.google_calendar_url,
+                      target: "_blank",
+                      rel: "noopener noreferrer",
+                      class: "cursor-pointer text-center block py-2 w-full mx-auto border rounded border-slate-300 hover:bg-green hover:text-white" do %>
+            <i class="mr-2 far fa-calendar-plus"></i><%= t('success.Add to Calendar') %>
+          <% end %>
+        </div>
       </div>
     </div>
     <span class="block w-full py-2 mx-auto text-center text-md">
