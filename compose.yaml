@@ -11,9 +11,7 @@ services:
       - "54320:5432"
 
   web:
-    build:
-      context: .
-      dockerfile: Dockerfile.dev
+    image: pingyenwu/14th-iding:latest
     environment:
       DATABASE_URL: postgres://postgres:password@db:5432/iding_development
       RAILS_ENV: development
@@ -21,8 +19,6 @@ services:
       - "3000:3000"
     depends_on:
       - db
-    volumes:
-      - .:/rails
 
 volumes:
   postgres_data:
