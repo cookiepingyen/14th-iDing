@@ -1,3 +1,4 @@
+# production 環境啟動指令: export RAILS_MASTER_KEY="secret" && docker compose up --build
 version: '3'
 services:
   db:
@@ -14,7 +15,8 @@ services:
     image: pingyenwu/14th-iding:latest
     environment:
       DATABASE_URL: postgres://postgres:password@db:5432/iding_development
-      RAILS_ENV: development
+      RAILS_ENV: production
+      RAILS_MASTER_KEY: ${RAILS_MASTER_KEY}
     ports:
       - "3000:3000"
     depends_on:
