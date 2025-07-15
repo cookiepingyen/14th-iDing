@@ -1,3 +1,4 @@
+# 本機執行 docker compose -f compose-dev.yaml up 啟動開發環境
 version: '3'
 services:
   db:
